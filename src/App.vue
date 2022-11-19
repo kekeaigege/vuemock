@@ -1,30 +1,27 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div>
+    <div class="h1">wd</div>
+  </div>
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import {getBannerData,getTabData}  from "../src/api/axios/data"
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  },
+  async mounted() {
+    let result = await getBannerData();
+    console.log(result);
+        let results = await getTabData();
+    console.log(results);
+  }
 }
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+</script>
+<style lang="less" scoped>
+.h1{
+  width: 3.5rem;
+  background-color: rgb(200, 238, 139);
+  height:3rem;
 }
 </style>
